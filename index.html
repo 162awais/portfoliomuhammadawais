@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muhammad Awais - Portfolio</title>
+    <link rel="icon" type="image/png" href="https://readdy.ai/api/search-image?query=minimalist%20tech%20logo%20for%20software%20developer%20portfolio&width=32&height=32&seq=favicon" />
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
@@ -41,7 +42,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
     />
     <style>
-      :where([class^="ri-"])::before { content: "\f3c2"; }
+      :where([class^="ri-"])::before { content: none; }
       body {
           font-family: 'Inter', sans-serif;
           scroll-behavior: smooth;
@@ -74,6 +75,14 @@
       }
       .project-card:hover img {
           transform: scale(1.05);
+      }
+      .filter-button:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s ease;
+      }
+      .contact-icon:hover {
+          transform: scale(1.1);
+          transition: transform 0.3s ease;
       }
       .custom-checkbox {
           position: relative;
@@ -161,13 +170,19 @@
       input:checked + .slider:before {
           transform: translateX(30px);
       }
-      .particles {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 0;
+      .loading-spinner {
+          display: none;
+          border: 4px solid #f3f3f3;
+          border-top: 4px solid #4F46E5;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          animation: spin 1s linear infinite;
+          margin-left: 10px;
+      }
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
       }
     </style>
   </head>
@@ -275,7 +290,7 @@
               <a
                 href="#contact"
                 class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >Get In Touch</a
+                >Get in Touch</a
               >
               <a
                 href="#projects"
@@ -358,7 +373,7 @@
 
               <div class="flex gap-4">
                 <a
-                  href="https://www.linkedin.com/in/muhammad-awais-asghar-7107a62b5/s"
+                  href="https://www.linkedin.com/in/muhammad-awais-asghar-7107a62b5/"
                   target="_blank"
                   class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
                 >
@@ -371,8 +386,12 @@
                 >
                   <i class="ri-github-fill ri-lg"></i>
                 </a>
-              
-                 
+                <a
+                  href="https://instagram.com/muhammadawais"
+                  target="_blank"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                >
+                  <i class="ri-instagram-fill ri-lg"></i>
                 </a>
               </div>
             </div>
@@ -446,7 +465,6 @@
                   <i class="ri-check-line ri-lg text-primary mr-2"></i>
                   <span>Android App Development</span>
                 </li>
-                
               </ul>
             </div>
 
@@ -590,25 +608,25 @@
           <div class="flex mb-8 justify-center">
             <div class="inline-flex p-1 bg-gray-100 rounded-full">
               <button
-                class="px-4 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap"
+                class="px-4 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap filter-button"
                 data-filter="all"
               >
                 All Projects
               </button>
               <button
-                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap filter-button"
                 data-filter="web"
               >
                 Web
               </button>
               <button
-                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap filter-button"
                 data-filter="mobile"
               >
                 Mobile
               </button>
               <button
-                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap filter-button"
                 data-filter="design"
               >
                 Design
@@ -628,15 +646,14 @@
               <div class="relative overflow-hidden h-56">
                 <img
                   src="https://readdy.ai/api/search-image?query=mobile%20app%20interface%20for%20fitness%20tracking%20application%20with%20clean%20modern%20UI%2C%20showing%20workout%20tracking%20screens%20and%20health%20metrics%2C%20professional%20mobile%20app%20design%20on%20smartphone%20mockup&width=600&height=400&seq=project1&orientation=landscape"
-                  alt="Fitness Tracker App"
+                  alt="Face Detection Attendance App"
                   class="w-full h-full object-cover transition-transform duration-500"
                 />
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">FaceDetection Attendence App</h3>
+                <h3 class="text-xl font-bold mb-2">Face Detection Attendance App</h3>
                 <p class="text-gray-600 mb-4">
-                  A comprehensive mobile application for detecting faces,
-                  marking attedence,and storing result in database that can be viewed later
+                  A comprehensive mobile application for detecting faces, marking attendance, and storing results in a database for later viewing.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -652,13 +669,10 @@
                     >Firebase</span
                   >
                 </div>
-              
               </div>
             </div>
 
-            
-
-            <!-- Project 3 -->
+            <!-- Project 2 -->
             <div
               class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
               data-category="design"
@@ -673,8 +687,7 @@
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Brand Identity Design</h3>
                 <p class="text-gray-600 mb-4">
-                  Complete branding package including logo design, color
-                  palette, typography, and marketing materials.
+                  Complete branding package including logo design, color palette, typography, and marketing materials.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -690,11 +703,10 @@
                     >Branding</span
                   >
                 </div>
-             
               </div>
             </div>
 
-            <!-- Project 4 -->
+            <!-- Project 3 -->
             <div
               class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
               data-category="mobile"
@@ -702,15 +714,14 @@
               <div class="relative overflow-hidden h-56">
                 <img
                   src="https://readdy.ai/api/search-image?query=food%20delivery%20app%20interface%20with%20restaurant%20listings%2C%20menu%20items%2C%20and%20order%20tracking%20functionality%2C%20modern%20mobile%20UI%20design%20on%20smartphone%20mockup&width=600&height=400&seq=project4&orientation=landscape"
-                  alt="Food Delivery App"
+                  alt="Food Delivery and Management System"
                   class="w-full h-full object-cover transition-transform duration-500"
                 />
               </div>
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Food Delivery and Management System</h3>
                 <p class="text-gray-600 mb-4">
-                  A Web application for ordering food from  restaurants
-                  and managing foods at restaurant with order tracking and revenue generated.
+                  A web application for ordering food from restaurants and managing restaurant operations with order tracking and revenue generation.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -726,11 +737,10 @@
                     >Firebase</span
                   >
                 </div>
-            
               </div>
             </div>
 
-            <!-- Project 5 -->
+            <!-- Project 4 -->
             <div
               class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
               data-category="web"
@@ -745,8 +755,7 @@
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Task Management App</h3>
                 <p class="text-gray-600 mb-4">
-                  A App for teams to track tasks,
-                  deadlines, and collaboration.
+                  An app for teams to track tasks, deadlines, and collaboration.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -757,13 +766,11 @@
                     class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                     >XML</span
                   >
-               
                 </div>
-                
               </div>
             </div>
 
-            <!-- Project 6 -->
+            <!-- Project 5 -->
             <div
               class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
               data-category="design"
@@ -778,8 +785,7 @@
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Social Media Content</h3>
                 <p class="text-gray-600 mb-4">
-                  Designed engaging social media content for various brands,
-                  including posts, stories, and promotional materials.
+                  Designed engaging social media content for various brands, including posts, stories, and promotional materials.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -795,7 +801,6 @@
                     >Marketing</span
                   >
                 </div>
-              
               </div>
             </div>
           </div>
@@ -847,7 +852,7 @@
                     class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                     >Mobile Development</span
                   >
-                   <span
+                  <span
                     class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                     >Current 6th Semester CGPA 3.99/4</span
                   >
@@ -928,7 +933,7 @@
                     class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                     >Computer Studies</span
                   >
-                   <span
+                  <span
                     class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                     >87% Marks</span
                   >
@@ -943,7 +948,7 @@
       <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
             <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
             <p class="text-gray-600 max-w-3xl mx-auto">
               Have a project in mind or want to discuss potential opportunities?
@@ -953,7 +958,7 @@
 
           <div class="flex flex-col md:flex-row gap-12">
             <div class="md:w-1/2">
-              <form class="bg-white p-8 rounded-lg shadow-lg">
+              <div class="bg-white p-8 rounded-lg shadow-lg">
                 <div class="mb-6">
                   <label for="name" class="block text-gray-700 font-medium mb-2"
                     >Your Name</label
@@ -962,7 +967,9 @@
                     type="text"
                     id="name"
                     class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
-                    placeholder="John Doe"
+                    placeholder="Enter your name"
+                    aria-label="Your Name"
+                    required
                   />
                 </div>
 
@@ -976,7 +983,9 @@
                     type="email"
                     id="email"
                     class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
-                    placeholder="john@example.com"
+                    placeholder="Enter your email"
+                    aria-label="Email Address"
+                    required
                   />
                 </div>
 
@@ -990,7 +999,9 @@
                     type="text"
                     id="subject"
                     class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
-                    placeholder="Project Inquiry"
+                    placeholder="Enter the subject"
+                    aria-label="Subject"
+                    required
                   />
                 </div>
 
@@ -1004,27 +1015,36 @@
                     id="message"
                     rows="5"
                     class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
-                    placeholder="Your message here..."
+                    placeholder="Type your message here..."
+                    aria-label="Message"
+                    required
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  class="w-full bg-primary text-white py-3 px-6 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >
-                  Send Message
-                </button>
-              </form>
+                <div class="flex items-center">
+                  <button
+                    id="sendMessage"
+                    class="w-full bg-primary text-white py-3 px-6 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                    aria-label="Send Message"
+                  >
+                    Send Message
+                  </button>
+                  <div id="loadingSpinner" class="loading-spinner"></div>
+                </div>
+                <p id="formError" class="text-red-500 text-sm mt-2 hidden">
+                  Please fill out all fields.
+                </p>
+              </div>
             </div>
 
-            <div class="md:w-1/2">
-              <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+            <div class="md:w-1/2 flex justify-center">
+              <div class="bg-white p-8 rounded-lg shadow-lg h-full text-center max-w-md">
                 <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
 
                 <div class="space-y-6">
-                  <div class="flex items-start">
+                  <div class="flex justify-center items-center">
                     <div
-                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4 contact-icon"
                     >
                       <i class="ri-mail-line ri-lg"></i>
                     </div>
@@ -1034,9 +1054,9 @@
                     </div>
                   </div>
 
-                  <div class="flex items-start">
+                  <div class="flex justify-center items-center">
                     <div
-                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4 contact-icon"
                     >
                       <i class="ri-phone-line ri-lg"></i>
                     </div>
@@ -1044,8 +1064,9 @@
                       <h4 class="font-medium text-gray-900 mb-1">Phone</h4>
                       <a
                         href="https://wa.me/923449420529"
-                        class="text-gray-700 hover:text-primary transition-colors flex items-center"
-                        id="whatsappLink"
+                        class="text-gray-700 hover:text-primary transition-colors flex items-center justify-center"
+                        target="_blank"
+                        aria-label="Contact via WhatsApp"
                       >
                         +92 3449420529
                         <span
@@ -1056,9 +1077,9 @@
                     </div>
                   </div>
 
-                  <div class="flex items-start">
+                  <div class="flex justify-center items-center">
                     <div
-                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4 contact-icon"
                     >
                       <i class="ri-map-pin-line ri-lg"></i>
                     </div>
@@ -1068,29 +1089,36 @@
                     </div>
                   </div>
 
-                  <div class="flex items-start">
+                  <div class="flex justify-center items-center">
                     <div
-                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4 contact-icon"
                     >
                       <i class="ri-global-line ri-lg"></i>
                     </div>
                     <div>
-                      <h4 class="font-medium text-gray-900 mb-1">
-                        Social Profiles
-                      </h4>
-                      <div class="flex gap-3 mt-2">
+                      <h4 class="font-medium text-gray-900 mb-1">Social Profiles</h4>
+                      <div class="flex gap-3 mt-2 justify-center">
                         <a
-                          href="https://www.linkedin.com/in/muhammadawais"
+                          href="https://www.linkedin.com/in/muhammad-awais-asghar-7107a62b5/"
                           target="_blank"
                           class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                          aria-label="LinkedIn Profile"
                         >
                           <i class="ri-linkedin-fill ri-lg"></i>
                         </a>
-
+                        <a
+                          href="https://github.com/162awais/"
+                          target="_blank"
+                          class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                          aria-label="GitHub Profile"
+                        >
+                          <i class="ri-github-fill ri-lg"></i>
+                        </a>
                         <a
                           href="https://instagram.com/muhammadawais"
                           target="_blank"
                           class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                          aria-label="Instagram Profile"
                         >
                           <i class="ri-instagram-fill ri-lg"></i>
                         </a>
@@ -1098,8 +1126,6 @@
                     </div>
                   </div>
                 </div>
-
-              
               </div>
             </div>
           </div>
@@ -1155,7 +1181,7 @@
 
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 Muhammad Awais. All rights reserved.
+            © <span id="currentYear">2025</span> Muhammad Awais. All rights reserved.
           </p>
 
           <div class="flex gap-4">
@@ -1163,6 +1189,7 @@
               href="https://www.linkedin.com/in/muhammad-awais-asghar-7107a62b5/"
               target="_blank"
               class="text-gray-400 hover:text-white transition-colors"
+              aria-label="LinkedIn Profile"
             >
               <i class="ri-linkedin-fill ri-lg"></i>
             </a>
@@ -1170,10 +1197,16 @@
               href="https://github.com/162awais/"
               target="_blank"
               class="text-gray-400 hover:text-white transition-colors"
+              aria-label="GitHub Profile"
             >
               <i class="ri-github-fill ri-lg"></i>
             </a>
-         
+            <a
+              href="https://instagram.com/muhammadawais"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors"
+              aria-label="Instagram Profile"
+            >
               <i class="ri-instagram-fill ri-lg"></i>
             </a>
           </div>
@@ -1195,13 +1228,11 @@
         const mobileMenu = document.getElementById("mobileMenu");
 
         mobileMenuButton.addEventListener("click", function () {
-          if (mobileMenu.classList.contains("-translate-y-full")) {
-            mobileMenu.classList.remove("-translate-y-full");
-            mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
-          } else {
-            mobileMenu.classList.add("-translate-y-full");
-            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
-          }
+          mobileMenu.classList.toggle("-translate-y-full");
+          mobileMenu.classList.toggle("translate-y-0");
+          mobileMenuButton.innerHTML = mobileMenu.classList.contains("-translate-y-full")
+            ? '<i class="ri-menu-line ri-lg"></i>'
+            : '<i class="ri-close-line ri-lg"></i>';
         });
 
         // Close mobile menu when clicking on a link
@@ -1209,6 +1240,7 @@
         mobileLinks.forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("-translate-y-full");
+            mobileMenu.classList.remove("translate-y-0");
             mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
           });
         });
@@ -1290,13 +1322,38 @@
       });
     </script>
 
-    <script id="whatsappScript">
+    <script id="contactFormScript">
       document.addEventListener("DOMContentLoaded", function () {
-        const whatsappLink = document.getElementById("whatsappLink");
+        const sendButton = document.getElementById("sendMessage");
+        const loadingSpinner = document.getElementById("loadingSpinner");
+        const formError = document.getElementById("formError");
 
-        whatsappLink.addEventListener("click", function (e) {
-          e.preventDefault();
-          window.open("https://wa.me/923449420529", "_blank");
+        sendButton.addEventListener("click", function () {
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const subject = document.getElementById("subject").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (!name || !email || !subject || !message) {
+            formError.classList.remove("hidden");
+            return;
+          }
+
+          formError.classList.add("hidden");
+          sendButton.disabled = true;
+          loadingSpinner.style.display = "inline-block";
+
+          // Format the message for WhatsApp
+          const formattedMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+          const phoneNumber = "923449420529";
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(formattedMessage)}`;
+
+          // Simulate a delay for user feedback
+          setTimeout(() => {
+            window.open(whatsappUrl, "_blank");
+            sendButton.disabled = false;
+            loadingSpinner.style.display = "none";
+          }, 1000);
         });
       });
     </script>
