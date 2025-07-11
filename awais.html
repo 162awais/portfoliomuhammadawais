@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Awais - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4F46E5", secondary: "#10B981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+      }
+      .hero-bg {
+          background-image: url('https://readdy.ai/api/search-image?query=modern%20tech%20background%20with%20abstract%20digital%20particles%20and%20code%20elements%2C%20soft%20blue%20gradient%2C%20professional%20tech%20atmosphere%2C%20perfect%20for%20software%20developer%20portfolio%20background%2C%20clean%20minimal%20design&width=1920&height=1080&seq=hero1&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+      }
+      .text-gradient {
+          background: linear-gradient(90deg, #4F46E5, #10B981);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+      .animate-float {
+          animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+      }
+      .skill-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      input:focus, textarea:focus {
+          outline: none;
+          border-color: #4F46E5;
+      }
+      .project-card:hover img {
+          transform: scale(1.05);
+      }
+      .custom-checkbox {
+          position: relative;
+          padding-left: 35px;
+          cursor: pointer;
+          user-select: none;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+      }
+      .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 24px;
+          width: 24px;
+          background-color: #fff;
+          border: 2px solid #e5e7eb;
+          border-radius: 4px;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+          border-color: #4F46E5;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #4F46E5;
+          border-color: #4F46E5;
+      }
+      .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+      }
+      .custom-checkbox .checkmark:after {
+          left: 9px;
+          top: 5px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 30px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #e5e7eb;
+          transition: .4s;
+          border-radius: 30px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 22px;
+          width: 22px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #4F46E5;
+      }
+      input:checked + .slider:before {
+          transform: translateX(30px);
+      }
+      .particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <header
+      class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-md z-50 shadow-sm"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-['Pacifico'] text-primary"
+          >Muhammad Awais</a
+        >
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#education"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Contact</a
+          >
+        </nav>
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+          id="mobileMenuButton"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+      <div
+        class="md:hidden bg-white absolute w-full left-0 top-full shadow-md transform -translate-y-full transition-transform duration-300 ease-in-out"
+        id="mobileMenu"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="#education"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-bg min-h-screen flex items-center relative pt-16">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-0"
+        ></div>
+        <div
+          class="container mx-auto px-4 py-16 z-10 flex flex-col md:flex-row items-center"
+        >
+          <div class="md:w-1/2 text-white mb-10 md:mb-0">
+            <p class="text-lg font-medium text-primary mb-3">Hello, I'm</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Muhammad Awais
+            </h1>
+            <h2 class="text-xl md:text-2xl font-medium mb-6">
+              Software Engineer & Designer
+            </h2>
+            <p class="text-gray-200 text-lg mb-8 max-w-lg">
+              A passionate Software Engineering student with expertise in
+              development, AI, and design. Creating innovative solutions that
+              make a difference.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                >Get In Touch</a
+              >
+              <a
+                href="#projects"
+                class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                >View Projects</a
+              >
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div
+              class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float"
+            >
+              <img
+                src="https://static.readdy.ai/image/44eef9b5a96ff624f72767721d2f533a/5c4ab5640a708573faf0344451ba2e26.jpeg"
+                alt="Muhammad Awais"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              Get to know more about me, my background, and what drives me
+              forward in the world of technology and design.
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+              <img
+                src="https://readdy.ai/api/search-image?query=software%20developer%20working%20on%20laptop%20in%20modern%20workspace%2C%20surrounded%20by%20tech%20devices%2C%20focused%20on%20coding%2C%20professional%20environment%20with%20modern%20design%20elements%2C%20soft%20lighting&width=600&height=400&seq=about1&orientation=landscape"
+                alt="About Muhammad Awais"
+                class="rounded-lg shadow-lg w-full"
+              />
+            </div>
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold mb-4">Who am I?</h3>
+              <p class="text-gray-700 mb-4">
+                I'm Muhammad Awais, a goal-driven and enthusiastic BS Software
+                Engineering student at Capital University of Science and
+                Technology, currently in my 6th semester. With a passion for
+                learning and building innovative solutions, I have developed a
+                strong technical foundation across software development, design,
+                and AI.
+              </p>
+              <p class="text-gray-700 mb-6">
+                My diverse skill set enables me to tackle complex problems in
+                both development and creative domains. I thrive in collaborative
+                environments and always aim to deliver quality solutions that
+                make an impact.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-8">
+                <div>
+                  <p class="font-medium text-gray-900">Name:</p>
+                  <p class="text-gray-700">Muhammad Awais</p>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">Email:</p>
+                  <p class="text-gray-700">awaisasghar746@gmail.com</p>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">Education:</p>
+                  <p class="text-gray-700">BS Software Engineering</p>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">University:</p>
+                  <p class="text-gray-700">
+                    Capital University of Science and Technology
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <a
+                  href="https://www.linkedin.com/in/muhammadawais"
+                  target="_blank"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                >
+                  <i class="ri-linkedin-fill ri-lg"></i>
+                </a>
+                <a
+                  href="https://github.com/muhammadawais"
+                  target="_blank"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                >
+                  <i class="ri-github-fill ri-lg"></i>
+                </a>
+                <a
+                  href="https://twitter.com/muhammadawais"
+                  target="_blank"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                >
+                  <i class="ri-twitter-fill ri-lg"></i>
+                </a>
+                <a
+                  href="https://instagram.com/muhammadawais"
+                  target="_blank"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                >
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              I've developed a diverse set of skills that allow me to tackle
+              various challenges in software development and design.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Programming & Development -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow skill-card"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-lg mb-4"
+              >
+                <i class="ri-code-s-slash-line ri-2x"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Programming & Development</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>C, C++, Java, XML</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>HTML5, CSS3, Bootstrap</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>JavaScript, jQuery</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Android (Java/XML)</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Basic Machine Learning</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Web & Mobile -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow skill-card"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-lg mb-4"
+              >
+                <i class="ri-smartphone-line ri-2x"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Web & Mobile</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Responsive Web Design</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Android App Development</span>
+                </li>
+                
+              </ul>
+            </div>
+
+            <!-- AI & Machine Learning -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow skill-card"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-lg mb-4"
+              >
+                <i class="ri-brain-line ri-2x"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">AI & Machine Learning</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>AI Fundamentals</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Machine Learning Basics</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Prompt Engineering</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Data Analysis</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Mathematical Foundations</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Design & Multimedia -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow skill-card"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-lg mb-4"
+              >
+                <i class="ri-palette-line ri-2x"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Design & Multimedia</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Canva Expert</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Logo Design</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Social Media Content</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Branding Kits</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line ri-lg text-primary mr-2"></i>
+                  <span>Video Editing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="mt-16">
+            <h3 class="text-2xl font-bold mb-8 text-center">Soft Skills</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="bg-white p-5 rounded-lg shadow-md text-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4"
+                >
+                  <i class="ri-team-line ri-2x"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Collaboration</h4>
+                <p class="text-gray-600 text-sm">
+                  Works effectively in team environments
+                </p>
+              </div>
+
+              <div class="bg-white p-5 rounded-lg shadow-md text-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4"
+                >
+                  <i class="ri-lightbulb-line ri-2x"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Problem Solving</h4>
+                <p class="text-gray-600 text-sm">
+                  Analytical approach to challenges
+                </p>
+              </div>
+
+              <div class="bg-white p-5 rounded-lg shadow-md text-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4"
+                >
+                  <i class="ri-time-line ri-2x"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Time Management</h4>
+                <p class="text-gray-600 text-sm">
+                  Efficiently handles deadlines
+                </p>
+              </div>
+
+              <div class="bg-white p-5 rounded-lg shadow-md text-center">
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4"
+                >
+                  <i class="ri-book-open-line ri-2x"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Quick Learner</h4>
+                <p class="text-gray-600 text-sm">
+                  Adapts rapidly to new technologies
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              Here are some of the projects I've worked on, showcasing my skills
+              and experience in different domains.
+            </p>
+          </div>
+
+          <div class="flex mb-8 justify-center">
+            <div class="inline-flex p-1 bg-gray-100 rounded-full">
+              <button
+                class="px-4 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap"
+                data-filter="all"
+              >
+                All Projects
+              </button>
+              <button
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                data-filter="web"
+              >
+                Web
+              </button>
+              <button
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                data-filter="mobile"
+              >
+                Mobile
+              </button>
+              <button
+                class="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-200 whitespace-nowrap"
+                data-filter="design"
+              >
+                Design
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            id="projectsGrid"
+          >
+            <!-- Project 1 -->
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
+              data-category="mobile"
+            >
+              <div class="relative overflow-hidden h-56">
+                <img
+                  src="https://readdy.ai/api/search-image?query=mobile%20app%20interface%20for%20fitness%20tracking%20application%20with%20clean%20modern%20UI%2C%20showing%20workout%20tracking%20screens%20and%20health%20metrics%2C%20professional%20mobile%20app%20design%20on%20smartphone%20mockup&width=600&height=400&seq=project1&orientation=landscape"
+                  alt="Fitness Tracker App"
+                  class="w-full h-full object-cover transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">FaceDetection Attendence App</h3>
+                <p class="text-gray-600 mb-4">
+                  A comprehensive mobile application for detecting faces,
+                  marking attedence,and storing result in database that can be viewed later
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Flutter</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Dart</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Firebase</span
+                  >
+                </div>
+              
+              </div>
+            </div>
+
+            
+
+            <!-- Project 3 -->
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
+              data-category="design"
+            >
+              <div class="relative overflow-hidden h-56">
+                <img
+                  src="https://readdy.ai/api/search-image?query=branding%20design%20project%20with%20logo%20design%2C%20business%20cards%2C%20and%20brand%20identity%20elements%2C%20professional%20graphic%20design%20work%20displayed%20on%20mockups%2C%20clean%20modern%20design%20style&width=600&height=400&seq=project3&orientation=landscape"
+                  alt="Brand Identity Design"
+                  class="w-full h-full object-cover transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Brand Identity Design</h3>
+                <p class="text-gray-600 mb-4">
+                  Complete branding package including logo design, color
+                  palette, typography, and marketing materials.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Canva</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Logo Design</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Branding</span
+                  >
+                </div>
+             
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
+              data-category="mobile"
+            >
+              <div class="relative overflow-hidden h-56">
+                <img
+                  src="https://readdy.ai/api/search-image?query=food%20delivery%20app%20interface%20with%20restaurant%20listings%2C%20menu%20items%2C%20and%20order%20tracking%20functionality%2C%20modern%20mobile%20UI%20design%20on%20smartphone%20mockup&width=600&height=400&seq=project4&orientation=landscape"
+                  alt="Food Delivery App"
+                  class="w-full h-full object-cover transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Food Delivery and Management System</h3>
+                <p class="text-gray-600 mb-4">
+                  A Web application for ordering food from  restaurants
+                  and managing foods at restaurant with order tracking and revenue generated.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Android</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Java</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Firebase</span
+                  >
+                </div>
+            
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
+              data-category="web"
+            >
+              <div class="relative overflow-hidden h-56">
+                <img
+                  src="https://readdy.ai/api/search-image?query=task%20management%20dashboard%20with%20project%20tracking%2C%20task%20lists%2C%20and%20productivity%20metrics%2C%20modern%20web%20application%20interface%20on%20desktop%20mockup&width=600&height=400&seq=project5&orientation=landscape"
+                  alt="Task Management System"
+                  class="w-full h-full object-cover transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Task Management App</h3>
+                <p class="text-gray-600 mb-4">
+                  A App for teams to track tasks,
+                  deadlines, and collaboration.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Java</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >XML</span
+                  >
+               
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow project-card"
+              data-category="design"
+            >
+              <div class="relative overflow-hidden h-56">
+                <img
+                  src="https://readdy.ai/api/search-image?query=social%20media%20content%20design%20with%20Instagram%20posts%2C%20stories%2C%20and%20Facebook%20covers%2C%20modern%20digital%20marketing%20design%20elements%20displayed%20on%20mockups&width=600&height=400&seq=project6&orientation=landscape"
+                  alt="Social Media Content"
+                  class="w-full h-full object-cover transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Social Media Content</h3>
+                <p class="text-gray-600 mb-4">
+                  Designed engaging social media content for various brands,
+                  including posts, stories, and promotional materials.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Canva</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Social Media</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Marketing</span
+                  >
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Education</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              My academic journey and educational background that has shaped my
+              skills and knowledge.
+            </p>
+          </div>
+
+          <div class="max-w-3xl mx-auto">
+            <div class="relative pl-8 pb-12 border-l-2 border-primary">
+              <div
+                class="absolute -left-3 top-0 w-6 h-6 bg-primary rounded-full"
+              ></div>
+              <div class="bg-white p-6 rounded-lg shadow-md ml-6">
+                <div class="flex justify-between items-start mb-4 flex-wrap">
+                  <h3 class="text-xl font-bold">BS Software Engineering</h3>
+                  <span
+                    class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                    >2021 - Present</span
+                  >
+                </div>
+                <h4 class="text-lg font-medium text-gray-700 mb-2">
+                  Capital University of Science and Technology
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Currently in 6th semester with focus on software development,
+                  AI, and modern programming practices.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Software Engineering</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >AI & ML</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Mobile Development</span
+                  >
+                   <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Current 6th Semester CGPA 3.99/4</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-12 border-l-2 border-primary">
+              <div
+                class="absolute -left-3 top-0 w-6 h-6 bg-primary rounded-full"
+              ></div>
+              <div class="bg-white p-6 rounded-lg shadow-md ml-6">
+                <div class="flex justify-between items-start mb-4 flex-wrap">
+                  <h3 class="text-xl font-bold">
+                    Intermediate (Pre-Engineering)
+                  </h3>
+                  <span
+                    class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                    >2019 - 2021</span
+                  >
+                </div>
+                <h4 class="text-lg font-medium text-gray-700 mb-2">
+                  Punjab College
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Completed pre-engineering with focus on Mathematics, Physics,
+                  and Computer Science.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Mathematics</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Physics</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Computer Science</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >93% Marks</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="relative pl-8">
+              <div
+                class="absolute -left-3 top-0 w-6 h-6 bg-primary rounded-full"
+              ></div>
+              <div class="bg-white p-6 rounded-lg shadow-md ml-6">
+                <div class="flex justify-between items-start mb-4 flex-wrap">
+                  <h3 class="text-xl font-bold">Matriculation (Science)</h3>
+                  <span
+                    class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                    >2017 - 2019</span
+                  >
+                </div>
+                <h4 class="text-lg font-medium text-gray-700 mb-2">
+                  Islamabad Model School
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Completed matriculation with distinction in Science subjects.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Science</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Mathematics</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >Computer Studies</span
+                  >
+                   <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                    >87% Marks</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              Have a project in mind or want to discuss potential opportunities?
+              I'd love to hear from you!
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+              <form class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="mb-6">
+                  <label for="name" class="block text-gray-700 font-medium mb-2"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    for="email"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    for="subject"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Subject</label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
+                    placeholder="Project Inquiry"
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    for="message"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="5"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700"
+                    placeholder="Your message here..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white py-3 px-6 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <div class="md:w-1/2">
+              <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+
+                <div class="space-y-6">
+                  <div class="flex items-start">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                    >
+                      <i class="ri-mail-line ri-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-gray-900 mb-1">Email</h4>
+                      <p class="text-gray-700">awaisasghar746@gmail.com</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                    >
+                      <i class="ri-phone-line ri-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-gray-900 mb-1">Phone</h4>
+                      <a
+                        href="https://wa.me/923449420529"
+                        class="text-gray-700 hover:text-primary transition-colors flex items-center"
+                        id="whatsappLink"
+                      >
+                        +92 3449420529
+                        <span
+                          class="ml-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium"
+                          >WhatsApp</span
+                        >
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                    >
+                      <i class="ri-map-pin-line ri-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-gray-900 mb-1">Location</h4>
+                      <p class="text-gray-700">Islamabad, Pakistan</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div
+                      class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-4"
+                    >
+                      <i class="ri-global-line ri-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-gray-900 mb-1">
+                        Social Profiles
+                      </h4>
+                      <div class="flex gap-3 mt-2">
+                        <a
+                          href="https://www.linkedin.com/in/muhammadawais"
+                          target="_blank"
+                          class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                        >
+                          <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+
+                        <a
+                          href="https://instagram.com/muhammadawais"
+                          target="_blank"
+                          class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition-colors"
+                        >
+                          <i class="ri-instagram-fill ri-lg"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-white mb-2 inline-block"
+              >Muhammad Awais</a
+            >
+            <p class="text-gray-400 max-w-md">
+              Software Engineer & Designer creating innovative solutions that
+              make a difference.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="#about"
+              class="text-gray-400 hover:text-white transition-colors"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-400 hover:text-white transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-400 hover:text-white transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#education"
+              class="text-gray-400 hover:text-white transition-colors"
+              >Education</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-400 hover:text-white transition-colors"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <hr class="border-gray-800 my-8" />
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Muhammad Awais. All rights reserved.
+          </p>
+
+          <div class="flex gap-4">
+            <a
+              href="https://www.linkedin.com/in/muhammadawais"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="ri-linkedin-fill ri-lg"></i>
+            </a>
+            <a
+              href="https://github.com/muhammadawais"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="ri-github-fill ri-lg"></i>
+            </a>
+            <a
+              href="https://twitter.com/muhammadawais"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="ri-twitter-fill ri-lg"></i>
+            </a>
+            <a
+              href="https://instagram.com/muhammadawais"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="ri-instagram-fill ri-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="#"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-50"
+      id="scrollToTop"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </a>
+
+    <script id="navigationScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          if (mobileMenu.classList.contains("-translate-y-full")) {
+            mobileMenu.classList.remove("-translate-y-full");
+            mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+          } else {
+            mobileMenu.classList.add("-translate-y-full");
+            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("-translate-y-full");
+            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          });
+        });
+      });
+    </script>
+
+    <script id="scrollScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollToTop = document.getElementById("scrollToTop");
+
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            scrollToTop.classList.remove("opacity-0");
+            scrollToTop.classList.add("opacity-100");
+          } else {
+            scrollToTop.classList.remove("opacity-100");
+            scrollToTop.classList.add("opacity-0");
+          }
+        });
+
+        scrollToTop.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="projectFilterScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll("[data-filter]");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filterValue = this.getAttribute("data-filter");
+
+            // Update active button
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("text-gray-700", "hover:bg-gray-200");
+            });
+            this.classList.add("bg-primary", "text-white");
+            this.classList.remove("text-gray-700", "hover:bg-gray-200");
+
+            // Filter projects
+            projectCards.forEach((card) => {
+              if (
+                filterValue === "all" ||
+                card.getAttribute("data-category") === filterValue
+              ) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <script id="whatsappScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const whatsappLink = document.getElementById("whatsappLink");
+
+        whatsappLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.open("https://wa.me/923449420529", "_blank");
+        });
+      });
+    </script>
+  </body>
+</html>
